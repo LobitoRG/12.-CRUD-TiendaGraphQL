@@ -1,12 +1,12 @@
 const { ApolloServer } = require('apollo-server');
 const userSchema = require('./schemas/userSchema');
 const userResolver = require('./resolvers/userResolver');
-const productSchema = require('./schemas/productSchema'); // Asumiendo que tienes un archivo para productos
+const productSchema = require('./schemas/productSchema'); 
 const productResolver = require('./resolvers/productResolver');
 
 const server = new ApolloServer({
-    typeDefs: [userSchema, productSchema], // Aquí se añaden los esquemas
-    resolvers: [userResolver, productResolver], // Aquí se añaden los resolvers
+    typeDefs: [userSchema, productSchema],
+    resolvers: [userResolver, productResolver], 
 });
 
 server.listen().then(({ url }) => {

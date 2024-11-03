@@ -6,12 +6,12 @@ const productSchema = new mongoose.Schema({
     precio: { type: Number, required: true },
     categoria: {
         type: String,
-        enum: ['frutas y verduras', 'lacteos', 'frituras','carnicos','bebidas','galletas'], // Puedes agregar más categorías
+        enum: ['frutas y verduras', 'lacteos', 'frituras','carnicos','bebidas','galletas'], 
         required: true
     },
     marca: { type: String, required: true },
     cantidadEnInv: { type: Number, default: 0 },
-    fechCreacion: { type: Date, default: Date.now }, // Fecha actual generada por el sistema
+    fechCreacion: { type: Date, default: Date.now }, 
     imagenes: [String]
 });
 

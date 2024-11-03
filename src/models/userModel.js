@@ -5,16 +5,16 @@ const userSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     direccion: { type: String, required: true },
-    telefono: { type: String, required: true }, // Cambiado a String
-    fechaRegistro: { type: Date, default: Date.now }, // Fecha actual generada por el sistema
+    telefono: { type: String, required: true }, 
+    fechaRegistro: { type: Date, default: Date.now }, 
     tipoUsuario: {
         type: String,
-        enum: ['cliente', 'usuario'], // Nombres en mayúsculas para el enum
+        enum: ['cliente', 'usuario'],
         required: true
     },
     metodoPagoPreferido: {
         type: String,
-        enum: ['tarjeta', 'paypal'], // Nombres en mayúsculas para el enum
+        enum: ['tarjeta', 'paypal'], 
         required: true
     }
 });

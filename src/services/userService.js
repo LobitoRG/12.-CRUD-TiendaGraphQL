@@ -8,12 +8,12 @@ const createUser = (nombreCompleto, email, password, direccion, telefono, tipoUs
         password,
         direccion,
         telefono,
-        fechaRegistro: new Date().toISOString(), // Asegúrate de que se convierte a string
+        fechaRegistro: new Date().toISOString(),
         tipoUsuario,
         metodoPagoPreferido
     };
     users.push(newUser);
-    return newUser; // Retorna el usuario creado
+    return newUser;
 };
 
 const getAllUsers = () => users;
@@ -23,7 +23,7 @@ const getUser = (id) => users.find(user => user.id === id);
 const deleteUser = (id) => {
     const index = users.findIndex(user => user.id === id);
     if (index === -1) return null;
-    return users.splice(index, 1)[0]; // Elimina y retorna el usuario eliminado
+    return users.splice(index, 1)[0]; 
 };
 
 const updateUser = (id, nombreCompleto, email, password, direccion, telefono, tipoUsuario, metodoPagoPreferido) => {
@@ -38,7 +38,7 @@ const updateUser = (id, nombreCompleto, email, password, direccion, telefono, ti
     user.tipoUsuario = tipoUsuario;
     user.metodoPagoPreferido = metodoPagoPreferido;
 
-    return user; // Retorna el usuario actualizado
+    return user; 
 };
 
 module.exports = {

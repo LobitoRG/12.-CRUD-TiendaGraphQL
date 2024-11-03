@@ -1,38 +1,38 @@
-const users = []; // Arreglo en memoria para almacenar los usuarios
+const users = []; 
 
 const usersResolver = {
     Query: {
-        users: () => users, // Resuelve la consulta para obtener todos los usuarios
-        getUser: (_, { id }) => users.find(user => user.id === id), // Resuelve la consulta para obtener un usuario por ID
+        users: () => users, 
+        getUser: (_, { id }) => users.find(user => user.id === id), 
     },
     Mutation: {
         createUser: (_, { nombreCompleto, email, password, direccion, telefono, tipoUsuario, metodoPagoPreferido }) => {
             const newUser = {
-                id: `${users.length + 1}`, // Genera un ID simple
+                id: `${users.length + 1}`, 
                 nombreCompleto,
                 email,
                 password,
                 direccion,
                 telefono,
-                fechaRegistro: new Date().toISOString(), // Fecha actual
+                fechaRegistro: new Date().toISOString(), 
                 tipoUsuario,
                 metodoPagoPreferido,
             };
-            users.push(newUser); // Agrega el nuevo usuario al arreglo
-            return newUser; // Devuelve el usuario creado
+            users.push(newUser); 
+            return newUser; 
         },
         updateUser: (_, { id, ...updates }) => {
-            const index = users.findIndex(user => user.id === id); // Busca el índice del usuario
-            if (index === -1) return null; // Si no se encuentra, devuelve null
-            const updatedUser = { ...users[index], ...updates }; // Actualiza los datos del usuario
-            users[index] = updatedUser; // Reemplaza el usuario en el arreglo
-            return updatedUser; // Devuelve el usuario actualizado
+            const index = users.findIndex(user => user.id === id); 
+            if (index === -1) return null; 
+            const updatedUser = { ...users[index], ...updates }; 
+            users[index] = updatedUser; 
+            return updatedUser; 
         },
         deleteUser: (_, { id }) => {
-            const index = users.findIndex(user => user.id === id); // Busca el índice del usuario
-            if (index === -1) return null; // Si no se encuentra, devuelve null
-            users.splice(index, 1); // Elimina el usuario del arreglo
-            return `Usuario con ID ${id} eliminado`; // Mensaje de confirmación
+            const index = users.findIndex(user => user.id === id); 
+            if (index === -1) return null; 
+            users.splice(index, 1); 
+            return `Usuario con ID ${id} eliminado`; 
         }
     }
 };

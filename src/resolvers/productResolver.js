@@ -7,7 +7,7 @@ const resolvers = {
     Mutation: {
         createProduct: (_, args) => productService.createProduct(args),
         updateProduct: (_, args) => productService.updateProduct(args._id, args),
-        deleteProduct: (_, { _id }) => productService.deleteProduct(_id),  // Verifica que esta línea esté presente
+        deleteProduct: (_, { _id }) => productService.deleteProduct(_id), 
     }
 };
 
